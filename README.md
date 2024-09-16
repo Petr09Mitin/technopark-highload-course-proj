@@ -179,6 +179,13 @@
             <td>400 * 1 Kb = 400 Kbps = <b>0.0004 Gb/s</b></td>
             <td>0.0004 * (106/400) / 8 * 3600 * 24 = <b>1 GB/day</b></td>
         </tr>
+        <tr>
+            <td>Создание группового чата</td>
+            <td>Let it happen once in 5 searches by phone: 1736 / 5 = <b>340 RPS</b></td>
+            <td>1000</td>
+            <td>1000 * 5 Kb = 5000 Kbps = <b>0.004 Gb/s</b></td>
+            <td>0.004 * (340/1000) / 8 * 3600 * 24 = <b>17.5 GB/day</b></td>
+        </tr>
     </tbody>
 </table>
 
