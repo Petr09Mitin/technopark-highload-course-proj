@@ -172,6 +172,13 @@
             <td>12000 * 10 Kb = 120000 Kbps = <b>0.11 Gb/s</b></td>
             <td>0.11 * (5787 / 12000) / 8 * 3600 * 24 = <b>573 GB/day</b></td>
         </tr>
+        <tr>
+            <td>Логин</td>
+            <td>Let once in 180 days 1 user is logged out. 1.66 bil DAU / 180 = 9 220 000 logins a day = <b>106 RPS</b></td>
+            <td>400</td>
+            <td>400 * 1 Kb = 400 Kbps = <b>0.0004 Gb/s</b></td>
+            <td>0.0004 * (106/400) / 8 * 3600 * 24 = <b>1 GB/day</b></td>
+        </tr>
     </tbody>
 </table>
 
