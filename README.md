@@ -76,12 +76,16 @@
             <td>34.19 billion total annual visits in 2021, 2.13b users in 2021, 2.9b in 2024, 34.19 * 6.27 billion total annual visits in 2024, * 1/365 [3] = 34.19 * 2.9 / 365 / 2.13 bil = <b>127 mil</b></td>
         </tr>
         <tr>
+            <td>Поиск чата по номеру телефона</td>
+            <td>Let 1 in 200 messages is to new user, 100 bil / 150 = <b>500 mil</b></td>
+        </tr>
+        <tr>
             <td>Отправка сообщений</td>
             <td><b>100 bil</b>[2]</td>
         </tr>
         <tr>
             <td>Отправка сообщений с вложениями</td>
-            <td> <b>6.9 billion</b> images are shared on WhatsApp chat each day [3]
+            <td> 6.9 billion images are shared on WhatsApp chat each day [3], <b>10 bil total attachments</b>
             </td>
         </tr>
         <tr>
@@ -153,6 +157,20 @@
             <td>20 000</td>
             <td>2 billion minutes a day * 60 sec * 16 Kbps / (24 * 3600) = <b>21.19 Gb/sec</b></td>
             <td>21.19 * (7 627 / 20 000) / 8 * 3600 * 24 = <b>87 272 GB/day</b></td>
+        </tr>
+        <tr>
+            <td>Голосовое сообщение</td>
+            <td>150 mil / (24 * 3600) = <b>1787</b></td>
+            <td>5000</td>
+            <td>5000 * 16 Kbps * 20 sec avg length = 1 600 000 Kbps = 1.52 Gb/s</td>
+            <td>1.52 * (1787 / 5000) / 8 * 3600 * 24 = <b>5 867 GB/day</b></td>
+        </tr>
+        <tr>
+            <td>Поиск по телефону</td>
+            <td>150 mil / (24 * 3600) = <b>1736</b></td>
+            <td>5000</td>
+            <td>12000 * 10 Kb = 120000 Kbps = 0.11 Gb/s</td>
+            <td>0.11 * (5787 / 12000) / 8 * 3600 * 24 = <b>573 GB/day</b></td>
         </tr>
     </tbody>
 </table>
