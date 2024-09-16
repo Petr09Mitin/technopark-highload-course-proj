@@ -50,7 +50,7 @@
     <tbody>
         <tr>
             <td>Текстовые сообщения</td>
-            <td>90 bil (approximately) / 3 bil = 30 messages a day per user, about 150 Kb a day per user, *365 a year (by 2024), 0.41 of that a year avg since 2010 (average MAU since 2010 is 0,41 of that in 2024), * 15 years passed = * 6.27 a year avg, total = 150 * 365 * 6.27 * 15 Kb per user = 219 000 Kb per user = <b>41.85 MB</b> per user</td>
+            <td>90 bil (approximately) / 3 bil = 30 messages a day per user, about 15 Kb a day per user, *365 a year (by 2024), 0.41 of that a year avg since 2010 (average MAU since 2010 is 0,41 of that in 2024), * 15 years passed = * 6.27 a year avg, total = 15 * 365 * 6.27 * 15 Kb per user = 21900 Kb per user = <b>4.19 MB</b> per user</td>
         </tr>
         <tr>
             <td>Голосовые сообщения</td>
@@ -114,7 +114,7 @@
     <tbody>
         <tr>
             <td>Текстовые сообщения</td>
-            <td>119 734 TB</td>
+            <td>11 973 TB</td>
         </tr>
         <tr>
             <td>Голосовые сообщения</td>
@@ -141,8 +141,8 @@
             <td>Отправка сообщения</td>
             <td>1 157 400</td>
             <td>2 000 000</td>
-            <td>2 mil * 5 Kb = 10 mil Kb = <b>9.53 Gb/sec</b></td>
-            <td>9.53 * (1157400/2000000) / 8 * 24 * 3600 = <b>59 562 GB/day</b></td>
+            <td>2 mil * 0.5 Kb = 10 mil Kb = <b>1 Gb/sec</b></td>
+            <td>1 * (1157400/2000000) / 8 * 24 * 3600 = <b>5 956 GB/day</b></td>
         </tr>
         <tr>
             <td>Сохранение вложения</td>
