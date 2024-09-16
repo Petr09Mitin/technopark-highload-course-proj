@@ -58,7 +58,7 @@
         </tr>
         <tr>
             <td>Медиа-файлы</td>
-            <td>8 bil total media a day,  / 3 bil users, max img size = 5 MB, let avg be 2.5 MB, 20 / 3 MB per user per day, (20/3) * 365 * 6.27 MB per user total = <b>14.89 GB</b></td>
+            <td>10 bil total media a day,  / 3 bil users, max img size = 5 MB, let avg be 1 MB, 10 / 3 MB per user per day, (10/3) * 365 * 6.27 MB per user total = <b>7.45 GB</b></td>
         </tr>
     </tbody>
 </table>
@@ -122,7 +122,7 @@
         </tr>
         <tr>
             <td>Медиа-файлы</td>
-            <td>43 637 000 TB</td>
+            <td>21 826 172 TB</td>
         </tr>
     </tbody>
 </table>
@@ -148,8 +148,8 @@
             <td>Сохранение вложения</td>
             <td>110 000</td>
             <td>200 000</td>
-            <td>2.5 MB avg attach, 200 000 * 2.5 * 8 / 1024 = <b>3 906 Gb/sec</b></td>
-            <td>3 906 * (110000 / 200000) / 8 * 24 * 3600 = <b>23 201 640 GB/day</b></td>
+            <td>1 MB avg attach, 200 000 * 1 * 8 / 1024 = <b>790 Gb/sec</b></td>
+            <td>790 * (110000 / 200000) / 8 * 24 * 3600 = <b>4 640 328 GB/day</b></td>
         </tr>
         <tr>
             <td>Аудиозвонок</td>
