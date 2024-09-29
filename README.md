@@ -304,3 +304,15 @@
 <p>Разумно будет использовать <b>GEO-based DNS</b> для определения IP балансировщика по регионам. Например, если есть 6 ДЦ в Западной Азии, то DNS определяет IP-адрес балансировщика для региона Азия, который распределяет нагрузку по соответствующим ДЦ.</p>
 
 <p>Используем Latency-based балансировку. После определения IP регионального балансировщика через DNS балансировщик определяет ДЦ, до которого задержка минимальна, и роутит запрос в этот ДЦ.</p>
+
+<h2>ДЗ4</h2>
+
+<h3>Локальная балансировка</h3>
+
+<ol>
+    <li>Дошли до ЦОДа</li> 
+    <li>2 * n (failure-prune) Kuber clusters with Nginx L7 balancers + ssl termination, Geo-based DNS дает нам хорошее попадание по session cache балансировщика</li>
+    <li>Redirect based on Least Connections alg to one of Kuber clusters with backends/static servers</li>
+    <li>Kuber balances load among the Pods</li>
+    <li>Get response from service and serve it through API gateway</li> 
+</ol>
