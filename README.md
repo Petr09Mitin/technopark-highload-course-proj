@@ -310,10 +310,10 @@
 <h3>Внешние запросы</h3>
 <ol>
     <li>Дошли до ЦОДа</li> 
-    <li>2 * n (failure-prune) Kuber clusters with Nginx L7 balancers + ssl termination, Geo-based DNS дает нам хорошее попадание по session cache балансировщика (для внешних запросов)</li>
-    <li>Redirect based on Least Connections alg to one of Kuber clusters with backends/static servers</li>
+    <li>2 * n (failure-prune) Kuber clusters with L4 balancers</li>
+    <li>Redirect based on Least Connections alg to one of Kuber clusters with backends/static servers + Envoy + ssl termination</li>
     <li>Kuber balances load among the Pods using Envoy proxy</li>
-    <li>Get response from service and serve it through API gateway</li> 
+    <li>Get response from service and serve it through Envoy right to client</li> 
 </ol>
 
 <h3>Внутрисервисные запросы</h3>
@@ -323,4 +323,4 @@
 <p>Засчет нескольких дублирующих друг друга кластеров Kubernetes достигается отказоустойчивость. Балансировщик должен асинхронно раз в секунду проводить health-check кластеров и обновлять список доступных кластеров в соответствии с ним. Отказоустойчивость на уровне Pod'а обеспечивается самим Кубером.</p>
 
 <h3>Нагрузка по терминации SSL</h3>
-<p>В среднем 4% запросов на 1 ЦОД, 4 ЦОДа на регион. Пусть в среднем 40% запросов попадают в session cache в силу корреляции географической близости к ЦОДу и задержки до него. Тогда при 3 млн пикового RPS на 1 ЦОД приходится 120k пикового RPS, из которых 72k не попадают в кэш, требуют 2 round-trip'а. 2 ms for RSA key exchange, 2ms * 72k = 144 sec of proc time per second. 144 CPU cores needed.</p>
+<p>В среднем 4% запросов на 1 ЦОД, 4 ЦОДа на регион, 4 Kuber кластера на ЦОД. Пусть в среднем 25% запросов попадают в session cache. Тогда при 3 млн пикового RPS на 1 ЦОД приходится 120k пикового RPS, из которых 90k не попадают в кэш, требуют 2 round-trip'а. 2 ms for RSA key exchange, 2ms * 90k = 180 sec of proc time per second.</p>
