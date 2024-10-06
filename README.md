@@ -324,3 +324,93 @@
 
 <h3>Нагрузка по терминации SSL</h3>
 <p>В среднем 4% запросов на 1 ЦОД, 4 ЦОДа на регион, 4 Kuber кластера на ЦОД. Пусть в среднем 25% запросов попадают в session cache. Тогда при 3 млн пикового RPS на 1 ЦОД приходится 120k пикового RPS, из которых 90k не попадают в кэш, требуют 2 round-trip'а. 2 ms for RSA key exchange, 2ms * 90k = 180 sec of proc time per second.</p>
+
+<h2>ДЗ5</h2>
+
+<h3>Логическая схема БД</h3>
+
+<img src="./db_logical.drawio.png" />
+
+<h3>Описание таблиц</h3>
+
+<table>
+    <thead>
+        <th>Таблица</th>
+        <th>Размеры данных</th>
+        <th>Нагрузка на чтение</th>
+        <th>Нагрузка на запись</th>
+        <th>Консистентность</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>User</td>
+            <td>4 + 4 + 2 * 10 + 2 * 10 + 2 * 20 + 2 * 12 + 64 + 4 * 8 = 208 bytes per user, 3 bil users = <b>582 GB</b></td>
+            <td><b>5000 RPS</b> of uncached get dialogs</td>
+            <td>100 mil users per 6 month, 3 times as much updates = 400 mil / (6 * 30 * 24 * 60 * 60) = <b>26 RPS</b></td>
+            <td>When deleted, session and avatar are deleted</td>
+        </tr>
+        <tr>
+            <td>Session</td>
+            <td>2 * 4 + 4 * 8 = 40 bytes per sess * 3 bil / 1024^4 = <b>112 GB</b></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Chat</td>
+            <td>4 + 4 * 2.5 + 10 * 2 + 10 * 2 + 3 * 8 = 78 bytes per chat * 5 chats per user * 3 bil users / 1024^4 = <b>1089 GB</b></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Message</td>
+            <td>4 * 4 + 2 * 2 + 4 + 3 + 3 * 8 = 67 bytes per message * 100 bil a day * 365 * 10 = <b>4 448 TB</b></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>UserAvatar</td>
+            <td>150 KB per file, 1 in 3 users has one = 150 * 1 bil / 1024 / 1024 / 1024 = <b>139.7 TB</b></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>PhotoAttachment</td>
+            <td>150 KB per file, 7 bil a day = 150 * 7 bil * 365 * 10 / 1024 / 1024 / 1024 = <b>3 485.64 TB</b></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>VideoAttachment</td>
+            <td>2MB per file, 5 times more rare than image, 1.4 bil a day = 2 * 1.4 bil * 365 * 10 / 1024 / 1024 = <b>9 746 551 TB</b></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>FileAttachment</td>
+            <td>1MB per file, 10 times more rare than image, .7 bil a day = 1 * .7 bil * 365 * 10 / 1024 / 1024 = <b>2 436 637 TB</b></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>AudioAttachment</td>
+            <td>2MB per file, 10 times more rare than image, .7 bil a day = 2 * .7 bil * 365 * 10 / 1024 / 1024 = <b>4 873 275 TB</b></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>VoiceMessageFile</td>
+            <td>4.47MB per user total * 3 bil / 1024 / 1024 = <b>12 788 TB</b></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
