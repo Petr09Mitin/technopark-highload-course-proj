@@ -353,64 +353,64 @@
             <td>Session</td>
             <td>2 * 4 + 4 * 8 = 40 bytes per sess * 3 bil / 1024^4 = <b>112 GB</b></td>
             <td></td>
-            <td></td>
-            <td></td>
+            <td>400 RPS</td>
+            <td>Deleted when expires, when user is deleted or logged out</td>
         </tr>
         <tr>
             <td>Chat</td>
             <td>4 + 4 * 2.5 + 10 * 2 + 10 * 2 + 3 * 8 = 78 bytes per chat * 5 chats per user * 3 bil users / 1024^4 = <b>1089 GB</b></td>
             <td></td>
-            <td></td>
-            <td></td>
+            <td>200 RPS</td>
+            <td>-</td>
         </tr>
         <tr>
             <td>Message</td>
             <td>4 * 4 + 2 * 2 + 4 + 3 + 3 * 8 = 67 bytes per message * 100 bil a day * 365 * 10 = <b>4 448 TB</b></td>
             <td></td>
-            <td></td>
-            <td></td>
+            <td>2 000 000 RPS</td>
+            <td>When deleted, all attachments are also deleted. If id of voice message is present in attachment_ids, then is a voice message (text and other attachments are ignored). If call_details JSON is not NULL, then message is a call info message, other info about it is ignored.</td>
         </tr>
         <tr>
             <td>UserAvatar</td>
             <td>150 KB per file, 1 in 3 users has one = 150 * 1 bil / 1024 / 1024 / 1024 = <b>139.7 TB</b></td>
             <td></td>
-            <td></td>
-            <td></td>
+            <td>52 RPS</td>
+            <td>Deleted when user is deleted</td>
         </tr>
         <tr>
             <td>PhotoAttachment</td>
             <td>150 KB per file, 7 bil a day = 150 * 7 bil * 365 * 10 / 1024 / 1024 / 1024 = <b>3 485.64 TB</b></td>
             <td></td>
-            <td></td>
-            <td></td>
+            <td>6000 RPS</td>
+            <td>Deleted when corresponding message is deleted</td>
         </tr>
         <tr>
             <td>VideoAttachment</td>
             <td>2MB per file, 5 times more rare than image, 1.4 bil a day = 2 * 1.4 bil * 365 * 10 / 1024 / 1024 = <b>9 746 551 TB</b></td>
             <td></td>
-            <td></td>
-            <td></td>
+            <td>1200 RPS</td>
+            <td>Deleted when corresponding message is deleted</td>
         </tr>
         <tr>
             <td>FileAttachment</td>
             <td>1MB per file, 10 times more rare than image, .7 bil a day = 1 * .7 bil * 365 * 10 / 1024 / 1024 = <b>2 436 637 TB</b></td>
             <td></td>
-            <td></td>
-            <td></td>
+            <td>600 RPS</td>
+            <td>Deleted when corresponding message is deleted</td>
         </tr>
         <tr>
             <td>AudioAttachment</td>
             <td>2MB per file, 10 times more rare than image, .7 bil a day = 2 * .7 bil * 365 * 10 / 1024 / 1024 = <b>4 873 275 TB</b></td>
             <td></td>
-            <td></td>
-            <td></td>
+            <td>600 RPS</td>
+            <td>Deleted when corresponding message is deleted</td>
         </tr>
         <tr>
             <td>VoiceMessageFile</td>
             <td>4.47MB per user total * 3 bil / 1024 / 1024 = <b>12 788 TB</b></td>
             <td></td>
-            <td></td>
-            <td></td>
+            <td>5000 RPS</td>
+            <td>Deleted when corresponding message is deleted</td>
         </tr>
     </tbody>
 </table>
