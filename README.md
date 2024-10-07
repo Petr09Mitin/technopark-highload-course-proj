@@ -331,6 +331,10 @@
 
 <img src="./db_logical.drawio.png" />
 
+<h3>Логическая схема БД (пользовательская сторона)</h3>
+
+<img src="./db_logical_user.drawio.png" />
+
 <h3>Описание таблиц</h3>
 
 <table>
