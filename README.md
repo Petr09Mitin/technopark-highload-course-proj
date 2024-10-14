@@ -446,10 +446,10 @@
         </tr>
         <tr>
             <td>UserChat</td>
-            <td>Redis</td>
+            <td>MongoDB</td>
             <td>Key is UserID, value is []ChatID</td>
             <td>Hash by UserID</td>
-            <td>Redis Cluster</td>
+            <td>Backups w/BSON, дублирующие инстансы (master-slave)</td>
         </tr>
         <tr>
             <td>Chat</td>
