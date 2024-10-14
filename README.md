@@ -418,3 +418,103 @@
         </tr>
     </tbody>
 </table>
+
+ <h2>ДЗ6</h2>
+
+<table>
+    <thead>
+        <th>Таблица</th>
+        <th>СУБД</th>
+        <th>Индексы</th>
+        <th>Шардинг</th>
+        <th>Резервное копирование</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>User</td>
+            <td>PostgreSQL + выгружать tuple (id, phone) в ElasticSearch</td>
+            <td>Phone</td>
+            <td>Hash by UserID</td>
+            <td>Master-Slave replication</td>
+        </tr>
+        <tr>
+            <td>Session</td>
+            <td>Redis</td>
+            <td>Key is UserID</td>
+            <td>Hash by UserID</td>
+            <td>Redis Cluster</td>
+        </tr>
+        <tr>
+            <td>UserChat</td>
+            <td>Redis</td>
+            <td>Key is UserID, value is []ChatID</td>
+            <td>Hash by UserID</td>
+            <td>Redis Cluster</td>
+        </tr>
+        <tr>
+            <td>Chat</td>
+            <td>MongoDB</td>
+            <td>-</td>
+            <td>Hash by ChatID</td>
+            <td>Backups w/BSON, дублирующие инстансы (master-slave)</td>
+        </tr>
+        <tr>
+            <td>Message</td>
+            <td>MongoDB</td>
+            <td>-</td>
+            <td>Hash by ChatID (stored in same doc as Chat)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>Event</td>
+            <td>Kafka</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Выгрузка в ClickHouse</td>
+        </tr>
+        <tr>
+            <td>UserAvatar</td>
+            <td>Hadoop</td>
+            <td>-</td>
+            <td>Hash by UserID</td>
+            <td>Дублирующий Hadoop с периодической синхронизацией, готовый подхватить нагрузку</td>
+        </tr>
+        <tr>
+            <td>PhotoAttachment</td>
+            <td>Hadoop</td>
+            <td>-</td>
+            <td>Hash by ChatID</td>
+            <td>Дублирующий Hadoop с периодической синхронизацией, готовый подхватить нагрузку</td>
+        </tr>
+        <tr>
+            <td>VideoAttachment</td>
+            <td>Hadoop</td>
+            <td>-</td>
+            <td>Hash by ChatID</td>
+            <td>Дублирующий Hadoop с периодической синхронизацией, готовый подхватить нагрузку</td>
+        </tr>
+        <tr>
+            <td>FileAttachment</td>
+            <td>Hadoop</td>
+            <td>-</td>
+            <td>Hash by ChatID</td>
+            <td>Дублирующий Hadoop с периодической синхронизацией, готовый подхватить нагрузку</td>
+        </tr>
+        <tr>
+            <td>AudioAttachment</td>
+            <td>Hadoop</td>
+            <td>-</td>
+            <td>Hash by ChatID</td>
+            <td>Дублирующий Hadoop с периодической синхронизацией, готовый подхватить нагрузку</td>
+        </tr>
+        <tr>
+            <td>VoiceMessageFile</td>
+            <td>Hadoop</td>
+            <td>-</td>
+            <td>Hash by ChatID</td>
+            <td>Дублирующий Hadoop с периодической синхронизацией, готовый подхватить нагрузку</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>На клиенте вложения хранить в Minio, другие данные - в SQLite.</p>
