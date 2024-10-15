@@ -467,10 +467,10 @@
         </tr>
         <tr>
             <td>Event</td>
-            <td>Kafka</td>
+            <td>Kafka (split topics by UserID)</td>
             <td>-</td>
             <td>-</td>
-            <td>Выгрузка в ClickHouse</td>
+            <td>Выгрузка в ClickHouse - сервис записи в ClickHouse делаем по дефолту консьюмером каждого топика, читаем все Events, в зависимости от поля type ('msg:received', 'msg:read' и т. д.) записываем события в соответствующие таблицы</td>
         </tr>
         <tr>
             <td>UserAvatar</td>
@@ -518,3 +518,11 @@
 </table>
 
 <p>На клиенте вложения хранить в Minio, другие данные - в SQLite.</p>
+
+<h4>msg unread/received/read mechanic</h4>
+<ol>
+    <li>mark local msg as RECEIVED/READ</li> 
+    <li>send req (chat_id, msg_id, is_read=true)</li> 
+    <li>write it to Kafka broker for this particular UserID</li> 
+    <li>pull event from destinated clients</li>
+</ol>
