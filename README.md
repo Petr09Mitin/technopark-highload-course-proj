@@ -519,10 +519,27 @@
 
 <p>На клиенте вложения хранить в Minio, другие данные - в SQLite.</p>
 
-<h4>msg unread/received/read mechanic</h4>
+<h2>ДЗ7</h2>
+
+<h4>Поиск по телефону</h4>
 <ol>
-    <li>mark local msg as RECEIVED/READ</li> 
-    <li>send req (chat_id, msg_id, is_read=true)</li> 
-    <li>write it to Kafka broker for this particular UserID</li> 
-    <li>pull event from destinated clients</li>
+    <li>При создании нового пользователя асинхронно выгружать объект вида {"phone": string, "id": bigint} в Elasticsearch (с унифицированным форматом скобок, дефисов и т. д.), обрабатывать с помощью pattern capture token filter https://discuss.elastic.co/t/search-phone-number/32771/3</li>
+    <li>При запросе обращаться к Elasticsearch, получить ID пользователя</li>
+    <li>По Btree (unique index) найти пользователя в PostgreSQL</li>
+</ol>
+
+<h4>Пометка сообщений как UNRECEIVED/RECEIVED/READ</h4>
+<ol>
+    <li>
+        Mark local msg at sender as UNRECEIVED by default
+    </li> 
+    <li>
+        Message receiver(s) send req (chat_id, msg_id, is_read, is_received)
+    </li> 
+    <li>
+        Write it to Kafka broker to message sender UserID topic
+    </li> 
+    <li>
+        Message sender reads event and marks local message as RECEIVED/READ
+    </li>
 </ol>
