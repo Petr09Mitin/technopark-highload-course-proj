@@ -523,7 +523,9 @@
 
 <h4>Поиск по телефону</h4>
 <ol>
-    <li>При создании нового пользователя асинхронно выгружать объект вида {"phone": string, "id": bigint} в Elasticsearch (с унифицированным форматом скобок, дефисов и т. д.), обрабатывать с помощью pattern capture token filter https://discuss.elastic.co/t/search-phone-number/32771/3</li>
+    <li>При создании нового пользователя асинхронно выгружать объект вида {"phone": string, "id": bigint} в Elasticsearch 
+    (с унифицированным форматом скобок, дефисов и т. д.), 
+    обрабатывать с помощью pattern capture token filter (разбивать на код страны, код региона, номер) https://discuss.elastic.co/t/search-phone-number/32771/3</li>
     <li>При запросе обращаться к Elasticsearch, получить ID пользователя с приоритетом тем значениям, у которых код страны совпадает с кодом пользователя, делающего запрос</li>
     <li>По Btree (unique index) найти пользователя в PostgreSQL</li>
 </ol>
