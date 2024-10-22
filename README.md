@@ -534,13 +534,25 @@
 <ol>
     <li>
         Mark local msg at sender as UNRECEIVED by default
-    </li> 
+    </li>
     <li>
-        Message receiver(s) send req (chat_id, msg_id, is_read, is_received)
-    </li> 
+        Message is send through real-time connection to XMPP server and received by the Receiver(s)
+    </li>
     <li>
-        Write it to Kafka broker to message sender UserID topic
-    </li> 
+        Message receiver(s) send req to server (chat_id, msg_id, is_read, is_received)
+    </li>
+    <li>
+        Write it to Kafka broker to topic that Sender is subscribed to
+    </li>
+    <li>
+        Write it to Kafka topic that Message Deletion service is subscribed to
+    </li>
+    <li>
+        Deletion Service reads msg_id and rewrites corresponding message with empty message (to avoid changes in index)
+    </li>
+    <li>
+        Sender pulls RECEIVED/READ event from Message Service 
+    </li>
     <li>
         Message sender reads event and marks local message as RECEIVED/READ
     </li>
