@@ -432,7 +432,7 @@
     <tbody>
         <tr>
             <td>User</td>
-            <td>PostgreSQL + выгружать tuple (id, phone) в ElasticSearch</td>
+            <td>MongoDB + выгружать tuple (id, phone) в ElasticSearch</td>
             <td>Phone</td>
             <td>Hash by UserID</td>
             <td>Master-Slave replication</td>
