@@ -645,5 +645,8 @@
     <li>Graceful degradation для обработки файлов - сохранять в unprocessed, если упали процессоры</li>
     <li>Ретрай регистрации с клиента в случае 500</li>
     <li>Всегда показывать списки чатов и сами чаты с клиента</li>
+    <li>redis fails - Memcached is read from</li>
+    <li>preview mechanism for media</li>
+    <li>retry unreceived messages from Cassandra</li>
 </ol>
 
