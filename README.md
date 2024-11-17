@@ -650,3 +650,137 @@
     <li>retry unreceived messages from Cassandra</li>
 </ol>
 
+<h2>ДЗ11</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Сервис</th>
+      <th>Целевая пиковая нагрузка приложения</th>
+      <th>CPU</th>
+      <th>RAM</th>
+      <th>Net</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>auth</td>
+      <td>2 500 000 RPS</td>
+      <td>5000</td>
+      <td>5000 Gb</td>
+      <td>30 Gbit/s</td>
+    </tr>
+    <tr>
+      <td>profile</td>
+      <td>5000 RPS</td>
+      <td>16</td>
+      <td>16 Gb</td>
+      <td>1 Gbit/s</td>
+    </tr>
+    <tr>
+      <td>messages</td>
+      <td>2 000 000 connections</td>
+      <td>40</td>
+      <td>400 Gb</td>
+      <td>840 Gbit/s</td>
+    </tr>
+    <tr>
+      <td>files</td>
+      <td>200 000 RPS</td>
+      <td>400</td>
+      <td>400 Gb</td>
+      <td>800 Gbit/s</td>
+    </tr>
+    <tr>
+      <td>metrics</td>
+      <td>500 RPS</td>
+      <td>8</td>
+      <td>8 Gb</td>
+      <td>1 Gbit/s</td>
+    </tr>
+  </tbody>
+</table>
+
+Для каждого сервиса подбираем конфигурацию сервера и хостинг
+
+<table>
+  <thead>
+    <tr>
+      <th>Название</th>
+      <th>Хостинг</th>
+      <th>Конфигурация</th>
+      <th>Cores</th>
+      <th>Cnt</th>
+      <th>Покупка</th>
+      <th>Аренда</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>kubenode</td>
+      <td>own</td>
+      <td>2x6338/16x32GB/2xNVMe4T/2x25Gb/s</td>
+      <td>64</td>
+      <td>112</td>
+      <td>$1,624,000</td>
+      <td>$26,992/мес</td>
+    </tr>
+  </tbody>
+</table>
+
+Для сервисов в оркестрации:
+
+<table>
+  <thead>
+    <tr>
+      <th>Сервис</th>
+      <th>CPU/r</th>
+      <th>CPU/l</th>
+      <th>RAM/r</th>
+      <th>RAM/l</th>
+      <th>Cnt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>auth</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8 Gb</td>
+      <td>32 Gb</td>
+      <td>625</td>
+    </tr>
+    <tr>
+      <td>profile</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8 Gb</td>
+      <td>32 Gb</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>messages</td>
+      <td>8</td>
+      <td>16</td>
+      <td>80 Gb</td>
+      <td>120 Gb</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>files</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8 Gb</td>
+      <td>32 Gb</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>metrics</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8 Gb</td>
+      <td>32 Gb</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
