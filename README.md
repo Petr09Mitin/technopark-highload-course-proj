@@ -654,6 +654,8 @@
 Erlang Benchmark - https://stressgrid.com/blog/webserver_benchmark/
 80k RPS
 
+ejabberd/Openfire: ~1,000–5,000 connections per CPU core.
+
 <table>
   <thead>
     <tr>
@@ -682,7 +684,7 @@ Erlang Benchmark - https://stressgrid.com/blog/webserver_benchmark/
     <tr>
       <td>messages</td>
       <td>2 000 000 connections</td>
-      <td>40</td>
+      <td>400</td>
       <td>400 Gb</td>
       <td>840 Gbit/s</td>
     </tr>
@@ -758,7 +760,7 @@ Erlang Benchmark - https://stressgrid.com/blog/webserver_benchmark/
       <td>messages</td>
       <td>16</td>
       <td>200 Gb</td>
-      <td>40</td>
+      <td>60</td>
     </tr>
     <tr>
       <td>files</td>
