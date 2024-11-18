@@ -724,8 +724,8 @@ Erlang Benchmark - https://stressgrid.com/blog/webserver_benchmark/
       <td>2x6338/16x32GB/2xNVMe4T/2x25Gb/s</td>
       <td>64</td>
       <td>50 (32 без резервирования)</td>
-      <td>$1,624,000</td>
-      <td>$26,992/мес</td>
+      <td>$1 624 000</td>
+      <td>$26 992/мес ($1 620 000 на 5 лет)</td>
     </tr>
   </tbody>
 </table>
