@@ -774,3 +774,91 @@ Erlang Benchmark - https://stressgrid.com/blog/webserver_benchmark/
     </tr>
   </tbody>
 </table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Название БД</th>
+      <th>Сервис</th>
+      <th>Целевая нагрузка</th>
+      <th>CPU</th>
+      <th>RAM</th>
+      <th>Cnt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Kafka</td>
+      <td>event-sourcing + messages</td>
+      <td>2 000 000 RPS</td>
+      <td>16</td>
+      <td>64 GB</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>Redis</td>
+      <td>auth</td>
+      <td>2 500 000 RPS</td>
+      <td>8</td>
+      <td>64 GB</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>Confidant</td>
+      <td>auth</td>
+      <td>2 500 000 RPS</td>
+      <td>4</td>
+      <td>32 GB</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>MongoDB</td>
+      <td>profile</td>
+      <td>5 000 RPS</td>
+      <td>8</td>
+      <td>32 GB</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>Elasticsearch</td>
+      <td>profile</td>
+      <td>5 000 RPS (поиск по телефону)</td>
+      <td>8</td>
+      <td>32 GB</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>HDFS</td>
+      <td>files</td>
+      <td>200 000 RPS</td>
+      <td>16</td>
+      <td>64 GB</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <td>Prometheus TSDB</td>
+      <td>metrics</td>
+      <td>500 RPS</td>
+      <td>4</td>
+      <td>16 GB</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>ClickHouse</td>
+      <td>metrics</td>
+      <td>500 RPS (аналитика)</td>
+      <td>8</td>
+      <td>32 GB</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>Loki</td>
+      <td>metrics</td>
+      <td>500 RPS (логирование)</td>
+      <td>4</td>
+      <td>16 GB</td>
+      <td>40</td>
+    </tr>
+  </tbody>
+</table>
+
