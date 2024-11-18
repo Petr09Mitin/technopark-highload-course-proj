@@ -651,6 +651,8 @@
 </ol>
 
 <h2>ДЗ11</h2>
+Erlang Benchmark - https://stressgrid.com/blog/webserver_benchmark/
+80k RPS
 
 <table>
   <thead>
@@ -721,7 +723,7 @@
       <td>own</td>
       <td>2x6338/16x32GB/2xNVMe4T/2x25Gb/s</td>
       <td>64</td>
-      <td>112</td>
+      <td>50 (32 без резервирования)</td>
       <td>$1,624,000</td>
       <td>$26,992/мес</td>
     </tr>
@@ -734,10 +736,8 @@
   <thead>
     <tr>
       <th>Сервис</th>
-      <th>CPU/r</th>
-      <th>CPU/l</th>
-      <th>RAM/r</th>
-      <th>RAM/l</th>
+      <th>CPU</th>
+      <th>RAM</th>
       <th>Cnt</th>
     </tr>
   </thead>
@@ -745,42 +745,32 @@
     <tr>
       <td>auth</td>
       <td>8</td>
-      <td>8</td>
-      <td>8 Gb</td>
       <td>32 Gb</td>
-      <td>625</td>
+      <td>160</td>
     </tr>
     <tr>
       <td>profile</td>
       <td>8</td>
-      <td>8</td>
-      <td>8 Gb</td>
       <td>32 Gb</td>
-      <td>2</td>
+      <td>40</td>
     </tr>
     <tr>
       <td>messages</td>
-      <td>8</td>
       <td>16</td>
-      <td>80 Gb</td>
-      <td>120 Gb</td>
-      <td>5</td>
+      <td>200 Gb</td>
+      <td>40</td>
     </tr>
     <tr>
       <td>files</td>
       <td>8</td>
-      <td>8</td>
-      <td>8 Gb</td>
       <td>32 Gb</td>
-      <td>50</td>
+      <td>60</td>
     </tr>
     <tr>
       <td>metrics</td>
       <td>8</td>
-      <td>8</td>
-      <td>8 Gb</td>
       <td>32 Gb</td>
-      <td>1</td>
+      <td>40</td>
     </tr>
   </tbody>
 </table>
